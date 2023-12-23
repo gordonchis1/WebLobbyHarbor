@@ -1,0 +1,13 @@
+.form__input-search{
+    outline: none;
+    color: #000;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: 10px 20px 10px 20px;
+}
+
+.logo__img{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+}
