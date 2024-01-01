@@ -1,0 +1,12 @@
+.nav__top{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    z-index: 200;
+}
+

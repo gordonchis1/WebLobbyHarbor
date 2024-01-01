@@ -1,0 +1,18 @@
+.form__input-search{
+    outline: none;
+    color: #000;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: width .4s cubic-bezier(0.37, 0, 0.63, 1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0 20px;
+
+}
+
+.form__input-search-inactive{
+    width: 30vw;
+}
+
+.form__input-search-active{
+    width: 70vw;
+}
