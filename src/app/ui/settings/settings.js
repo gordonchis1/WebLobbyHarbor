@@ -39,7 +39,7 @@ export default function Settings () {
                         step={1}
                         maxValue={30}
                         minValue={0}
-                        defaultValue={JSON.parse(window.localStorage.getItem('config')).blur}
+                        defaultValue={JSON.parse(window.localStorage.getItem('config'))?.blur || 0}
                         className="slider"
                         color='foreground'
                         onChange={handleChangeSliderBlur}
