@@ -8,6 +8,10 @@ export default function SearchInput ({ setInput, completeInput, searchParams, ro
   const inputRef = useRef()
 
   useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
+  useEffect(() => {
     const params = new URLSearchParams(searchParams)
     const arraySinEspacios = completeInput.input.split(' ')
     const cleanSearch = keysOfKeys.includes(arraySinEspacios[0])

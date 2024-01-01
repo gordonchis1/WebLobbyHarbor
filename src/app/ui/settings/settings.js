@@ -6,6 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose, faGear } from '@fortawesome/free-solid-svg-icons'
 import('./settings.css')
 
+//! componetizar
+//! arreglar la forma de conservar las settings
+
+// ? agregar las miniaturas de los background
+
 export default function Settings () {
   const [active, setActive] = useState(false)
 
@@ -33,7 +38,7 @@ export default function Settings () {
           : <FontAwesomeIcon icon={faClose} className='settings__close-icon setting-icon' onClick={handleClick}/>}
         { active
           ? <div className={'settings__container'}>
-                <div className='settings__slider-wpp'>
+                <div className='settings__blur-slider-wpp'>
                     <Slider
                         label="Blur"
                         step={1}

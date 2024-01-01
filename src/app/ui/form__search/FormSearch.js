@@ -6,9 +6,7 @@ import SearchLogo from '../search__logo/SearchLogo'
 import('./formsearch.css')
 
 // !arreglar el codigo en las condiciones al enviar
-// !componetizar
 // !validar las props
-// !optimizar el useEffect
 
 export default function FormSearch ({ setInput, value, completeInput }) {
   const searchParams = useSearchParams()
@@ -17,7 +15,6 @@ export default function FormSearch ({ setInput, value, completeInput }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     const value = `${KEYS[searchParams.get('key')?.toString()] ? KEYS[searchParams.get('key')?.toString()]?.route : KEYS['!g'].route}${searchParams.get('query')?.toString()}`
-
     route.push(value)
   }
 

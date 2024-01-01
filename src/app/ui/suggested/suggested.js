@@ -5,12 +5,6 @@ import { useEffect, useState } from 'react'
 import { KEYS, keysOfKeys } from '../../lib/constants'
 import('./suggested.css')
 
-// ? agregar los valores clickiados a la url
-// ? pushear a la url
-// ? agregar el hover desde el click
-
-//! arreglar los botones de las recomendaciones
-//! arreglar los desfocus de las recomendaciones
 //! arreglar bug espasios
 //! arreglar los logos
 
@@ -39,7 +33,7 @@ export default function Suggested ({ setInput, value, completeInput }) {
   }
 
   return (
-    <ul className={completeInput.status ? 'suggested__container suggested__container-active' : 'suggested__container  suggested__container-desactive'}>
+    <div className={`suggested__container ${completeInput.status ? 'suggested__container-active' : 'suggested__container-desactive'}`}>
       {results.map(element => {
         return (
           <li key={element} className='suggested__result-container' style={{ width: '100%', height: '100%' }}>
@@ -50,6 +44,6 @@ export default function Suggested ({ setInput, value, completeInput }) {
           </li>
         )
       })}
-    </ul>
+    </div>
   )
 }

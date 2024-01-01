@@ -1,7 +1,4 @@
 'use client'
-
-//! cambiar el input por otro nombre con las propiedades active y focus
-
 import { useState } from 'react'
 import FormSearch from '../form__search/FormSearch'
 import Suggested from '../suggested/suggested'
