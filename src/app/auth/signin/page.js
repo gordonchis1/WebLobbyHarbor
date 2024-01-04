@@ -14,8 +14,7 @@ export default function Page () {
       <AuthForm onSubmit={handleSubmit}>
         <AuthInput label="Username" type="text"/>
         <AuthInput label="Password" type="password"/>
-        <AuthInput label="Mail" type="text"/>
-        <button className="w-full py-1.5 bg-black rounded-md mt-7" >Sign Up</button>
+        <button className="w-full py-1.5 bg-black rounded-md mt-7" >Sign In</button>
       </AuthForm>
     </>
   )
