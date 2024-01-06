@@ -5,7 +5,7 @@ import Suggested from '../suggested/suggested'
 import ScreenCover from '../screen__cover/ScreenCover'
 import('./search.css')
 
-export default function Search () {
+export default function Search() {
   const [input, setInput] = useState({
     status: false,
     input: ''
@@ -13,10 +13,18 @@ export default function Search () {
 
   return (
     <>
-      <ScreenCover setInput={setInput} completeInput={input}/>
+      <ScreenCover setInput={setInput} completeInput={input} />
       <div className="search-wpp">
-        <FormSearch setInput={setInput} value={input.input} completeInput={input}/>
-        <Suggested setInput={setInput} value={input.input} completeInput={input}/>
+        <FormSearch
+          setInput={setInput}
+          value={input.input}
+          completeInput={input}
+        />
+        <Suggested
+          setInput={setInput}
+          value={input.input}
+          completeInput={input}
+        />
       </div>
     </>
   )

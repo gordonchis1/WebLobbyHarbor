@@ -8,20 +8,31 @@ import('./formsearch.css')
 // !arreglar el codigo en las condiciones al enviar
 // !validar las props
 
-export default function FormSearch ({ setInput, value, completeInput }) {
+export default function FormSearch({ setInput, value, completeInput }) {
   const searchParams = useSearchParams()
   const route = useRouter()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const value = `${KEYS[searchParams.get('key')?.toString()] ? KEYS[searchParams.get('key')?.toString()]?.route : KEYS['!g'].route}${searchParams.get('query')?.toString()}`
+    const filter = KEYS[searchParams.get('key')?.toString()]
+
+    const value = `${
+      filter
+        ? KEYS[searchParams.get('key')?.toString()]?.route
+        : KEYS['!g'].route
+    }${searchParams.get('query')?.toString()}`
     route.push(value)
   }
 
   return (
-        <form onSubmit={handleSubmit} className='flex z-10'>
-          <SearchLogo searchParams={searchParams}/>
-          <SearchInput completeInput={completeInput} setInput={setInput} searchParams={searchParams} route={route}/>
-        </form>
+    <form onSubmit={handleSubmit} className="flex z-10">
+      <SearchLogo searchParams={searchParams} />
+      <SearchInput
+        completeInput={completeInput}
+        setInput={setInput}
+        searchParams={searchParams}
+        route={route}
+      />
+    </form>
   )
 }

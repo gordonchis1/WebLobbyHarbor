@@ -1,5 +1,6 @@
 import { GeistSans } from 'geist/font/sans'
 import { Providers } from './providers'
+import { ClerkProvider } from '@clerk/nextjs'
 import('./globals.css')
 
 export const metadata = {
@@ -7,14 +8,14 @@ export const metadata = {
   description: 'Loading...'
 }
 
-export default function RootLayout ({ children }) {
+export default function RootLayout({ children }) {
   return (
-      <html lang="en" className='light'>
-          <body className={`${GeistSans.className}`} >
-            <Providers>
-              {children}
-            </Providers>
-          </body>
+    <ClerkProvider>
+      <html lang="en" className="light">
+        <body className={`${GeistSans.className}`}>
+          <Providers>{children}</Providers>
+        </body>
       </html>
+    </ClerkProvider>
   )
 }

@@ -3,7 +3,12 @@ import { usePathname } from 'next/navigation'
 import { keysOfKeys } from '../../lib/constants'
 import('./searchinput.css')
 
-export default function SearchInput ({ setInput, completeInput, searchParams, route }) {
+export default function SearchInput({
+  setInput,
+  completeInput,
+  searchParams,
+  route
+}) {
   const pathname = usePathname()
   const inputRef = useRef()
 
@@ -16,7 +21,9 @@ export default function SearchInput ({ setInput, completeInput, searchParams, ro
     const arraySinEspacios = completeInput.input.split(' ')
     const cleanSearch = keysOfKeys.includes(arraySinEspacios[0])
       ? arraySinEspacios.slice(1).join(' ')
-      : arraySinEspacios[0].startsWith('!') ? arraySinEspacios.slice(1).join(' ') : arraySinEspacios.join(' ')
+      : arraySinEspacios[0].startsWith('!')
+        ? arraySinEspacios.slice(1).join(' ')
+        : arraySinEspacios.join(' ')
 
     const initKey = arraySinEspacios.filter((elemento) => elemento !== '')
 
@@ -40,16 +47,19 @@ export default function SearchInput ({ setInput, completeInput, searchParams, ro
   }
 
   return (
-        <input
-        ref={inputRef}
-        onFocus={() => setInput({ ...completeInput, status: true })}
-        className={completeInput.status ? 'form__input-search form__input-search-active' : 'form__input-search form__input-search-inactive'}
-        type="text"
-        placeholder="Search"
-        onChange={event => handleSearch(event)}
-        defaultValue={searchParams.get('query')?.toString()}
-        value={completeInput.input}
-        >
-        </input>
+    <input
+      ref={inputRef}
+      onFocus={() => setInput({ ...completeInput, status: true })}
+      className={
+        completeInput.status
+          ? 'form__input-search form__input-search-active'
+          : 'form__input-search form__input-search-inactive'
+      }
+      type="text"
+      placeholder="Search"
+      onChange={(event) => handleSearch(event)}
+      defaultValue={searchParams.get('query')?.toString()}
+      value={completeInput.input}
+    ></input>
   )
 }

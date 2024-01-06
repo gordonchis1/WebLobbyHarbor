@@ -3,19 +3,13 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'standard',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime'
-  ],
+  extends: ['standard', 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
   overrides: [
     {
       env: {
         node: true
       },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script'
       }
@@ -25,10 +19,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react'
-  ],
+  plugins: ['react'],
   rules: {
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'space-before-function-paren': ['error', 'never'],
+    'multiline-ternary': 0
   }
 }

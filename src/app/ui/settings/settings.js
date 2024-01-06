@@ -11,7 +11,7 @@ import('./settings.css')
 
 // ? agregar las miniaturas de los background
 
-export default function Settings () {
+export default function Settings() {
   const [active, setActive] = useState(false)
 
   const handleClick = (event) => {
@@ -19,7 +19,10 @@ export default function Settings () {
   }
 
   const handleChangeSliderBlur = (event) => {
-    document.documentElement.style.setProperty('--background-blur', `${event}px`)
+    document.documentElement.style.setProperty(
+      '--background-blur',
+      `${event}px`
+    )
     const config = {
       blur: event
     }
@@ -28,30 +31,49 @@ export default function Settings () {
 
   useEffect(() => {
     const config = JSON.parse(window.localStorage.getItem('config'))
-    if (config) { document.documentElement.style.setProperty('--background-blur', `${config.blur}px`) }
+    if (config) {
+      document.documentElement.style.setProperty(
+        '--background-blur',
+        `${config.blur}px`
+      )
+    }
   }, [])
 
   return (
     <>
-        {!active
-          ? <FontAwesomeIcon icon={faGear} className='settings__icon setting-icon' onClick={handleClick}/>
-          : <FontAwesomeIcon icon={faClose} className='settings__close-icon setting-icon' onClick={handleClick}/>}
-        { active
-          ? <div className={'settings__container'}>
-                <div className='settings__blur-slider-wpp'>
-                    <Slider
-                        label="Blur"
-                        step={1}
-                        maxValue={30}
-                        minValue={0}
-                        defaultValue={JSON.parse(window.localStorage.getItem('config'))?.blur || 0}
-                        className="slider"
-                        color='foreground'
-                        onChange={handleChangeSliderBlur}
-                    />
-                </div>
-            </div>
-          : ''}
+      {!active ? (
+        <FontAwesomeIcon
+          icon={faGear}
+          className="settings__icon setting-icon"
+          onClick={handleClick}
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faClose}
+          className="settings__close-icon setting-icon"
+          onClick={handleClick}
+        />
+      )}
+      {active ? (
+        <div className={'settings__container'}>
+          <div className="settings__blur-slider-wpp">
+            <Slider
+              label="Blur"
+              step={1}
+              maxValue={30}
+              minValue={0}
+              defaultValue={
+                JSON.parse(window.localStorage.getItem('config'))?.blur || 0
+              }
+              className="slider"
+              color="foreground"
+              onChange={handleChangeSliderBlur}
+            />
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
     </>
   )
 }
