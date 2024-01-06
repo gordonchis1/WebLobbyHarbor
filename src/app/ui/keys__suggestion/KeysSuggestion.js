@@ -1,6 +1,6 @@
 import { KEYS } from '../../lib/constants'
-import('./keysuggestion.css')
 import Image from 'next/image'
+import('./keysuggestion.css')
 
 export default function KeySuggestion({ results, completeInput, setInput }) {
   const handleClick = (element) => (event) => {
