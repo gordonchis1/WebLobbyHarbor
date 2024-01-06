@@ -11,7 +11,8 @@ export default authMiddleware({
     '/sign-up',
     '/api',
     '/api/user',
-    '/api/webhooks(.*)'
+    '/api/webhooks(.*)',
+    '/api/webhook'
   ]
 })
 
