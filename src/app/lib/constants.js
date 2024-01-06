@@ -1,10 +1,9 @@
-import googleLogo from '../../../public/google_logo.png'
-import youtubeLogo from '../../../public/youtube_logo.png'
-import youLogo from '../../../public/you-logo.png'
-import tiktokLogo from '../../../public/tiktok_logo.png'
-import bingLogo from '../../../public/bing_logo.png'
-import spotifyLogo from '../../../public/Spotify_logo.png'
-//! arreglar las importaciones con el @
+import googleLogo from '../../../public/google_logo.webp'
+import youtubeLogo from '../../../public/youtube_logo.webp'
+import youLogo from '../../../public/you-logo.webp'
+import tiktokLogo from '../../../public/tiktok_logo.webp'
+import bingLogo from '../../../public/bing_logo.webp'
+import spotifyLogo from '../../../public/Spotify_logo.webp'
 
 export const KEYS = {
   '!g': {

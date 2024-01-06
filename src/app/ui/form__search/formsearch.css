@@ -5,9 +5,3 @@
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
-
-.logo__img {
-  height: 35px;
-  width: 35px;
-  object-fit: contain;
-}

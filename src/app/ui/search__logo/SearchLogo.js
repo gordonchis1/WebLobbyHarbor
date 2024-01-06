@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { KEYS } from '../../lib/constants'
-
+import('./searchlogo.css')
 //! arreglar la condicion
 
 export default function SearchLogo({ searchParams }) {
@@ -12,11 +12,12 @@ export default function SearchLogo({ searchParams }) {
             ? KEYS[searchParams.get('key')?.toString()]?.img
             : KEYS['!g'].img
         }
-        width={'35px'}
-        height={'35px'}
+        width={35}
+        height={35}
         className="logo__img"
         alt="logo"
         priority={true}
+        placeholder="blur"
       />
     </div>
   )

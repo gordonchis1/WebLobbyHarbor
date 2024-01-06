@@ -1,5 +1,6 @@
 import { KEYS } from '../../lib/constants'
 import('./keysuggestion.css')
+import Image from 'next/image'
 
 export default function KeySuggestion({ results, completeInput, setInput }) {
   const handleClick = (element) => (event) => {
@@ -20,10 +21,12 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
               className={'suggested__result-btn'}
               onClick={handleClick(element)}
             >
-              <img
+              <Image
                 src={KEYS[element].img.src}
+                width={25}
+                height={20}
                 className="suggested__img-logo"
-              ></img>
+              ></Image>
               <p>{element}</p>
             </button>
           </li>

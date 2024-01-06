@@ -1,0 +1,5 @@
+.logo__img {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
