@@ -26,6 +26,7 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
                 width={25}
                 height={20}
                 className="suggested__img-logo"
+                alt="suggestion logo"
               ></Image>
               <p>{element}</p>
             </button>

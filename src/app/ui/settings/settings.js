@@ -44,13 +44,13 @@ export default function Settings() {
       {!active ? (
         <FontAwesomeIcon
           icon={faGear}
-          className="settings__icon setting-icon"
+          className="text-3xl cursor-pointer mt-5 mr-5 hover:rotate-90 transform-gpu duration-500"
           onClick={handleClick}
         />
       ) : (
         <FontAwesomeIcon
           icon={faClose}
-          className="settings__close-icon setting-icon"
+          className="text-3xl cursor-pointer mt-2 mr-2 hover:text-red-800 duration-100"
           onClick={handleClick}
         />
       )}

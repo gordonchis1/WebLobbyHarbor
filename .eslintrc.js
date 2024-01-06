@@ -22,7 +22,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/prop-types': 0,
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': 0,
     'multiline-ternary': 0
   }
 }

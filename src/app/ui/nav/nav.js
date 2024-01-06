@@ -1,5 +1,5 @@
 import Settings from '../settings/settings'
-import User from '../User/User'
+import User from '../auth/Auth'
 import('./nav.css')
 
 //! componetizar los elementos
@@ -7,7 +7,7 @@ import('./nav.css')
 
 export default function Nav() {
   return (
-    <nav className="nav__top">
+    <nav className="absolute right-0 top-0 w-auto h-auto flex justify-between z-100">
       <User />
       <Settings />
     </nav>

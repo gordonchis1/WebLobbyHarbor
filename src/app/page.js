@@ -1,11 +1,11 @@
 import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
 import { auth } from '@clerk/nextjs'
-
+// ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML
 //! agregar los atajos de teclado con un custom hook
 
-export default function Page() {
+export default async function Page() {
   const { userId } = auth()
 
   console.log(userId)

@@ -17,7 +17,6 @@ export default function SearchLogo({ searchParams }) {
         className="logo__img"
         alt="logo"
         priority={true}
-        placeholder="blur"
       />
     </div>
   )
