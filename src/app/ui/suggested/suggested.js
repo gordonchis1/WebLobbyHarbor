@@ -13,17 +13,13 @@ export default function Suggested({ setInput, value, completeInput }) {
   const searchParams = useSearchParams()
   const input = searchParams.get('query')
   const key = searchParams.get('key')
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState(keysOfKeys)
 
   useEffect(() => {
     if (key?.startsWith('!')) {
       key
         ? setResults(keysOfKeys.filter((element) => element.includes(key)))
         : setResults(keysOfKeys)
-    } else if (!key) {
-      setResults(keysOfKeys)
-    } else {
-      setResults([])
     }
     if (input) {
       setResults([])

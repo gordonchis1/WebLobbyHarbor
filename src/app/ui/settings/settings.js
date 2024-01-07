@@ -1,10 +1,7 @@
 'use client'
-
 import { useEffect, useState } from 'react'
-import { Slider } from '@nextui-org/slider'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClose, faGear } from '@fortawesome/free-solid-svg-icons'
-import('./settings.css')
+import SettingsButton from '../settings__button/SettingsButton'
+import SettingsBlur from '../settings__blur/SettingsBlur'
 
 //! componetizar
 //! arreglar la forma de conservar las settings
@@ -13,21 +10,6 @@ import('./settings.css')
 
 export default function Settings() {
   const [active, setActive] = useState(false)
-
-  const handleClick = (event) => {
-    setActive(!active)
-  }
-
-  const handleChangeSliderBlur = (event) => {
-    document.documentElement.style.setProperty(
-      '--background-blur',
-      `${event}px`
-    )
-    const config = {
-      blur: event
-    }
-    window.localStorage.setItem('config', JSON.stringify(config))
-  }
 
   useEffect(() => {
     const config = JSON.parse(window.localStorage.getItem('config'))
@@ -41,35 +23,12 @@ export default function Settings() {
 
   return (
     <>
-      {!active ? (
-        <FontAwesomeIcon
-          icon={faGear}
-          className="text-3xl cursor-pointer mt-5 mr-5 hover:rotate-90 transform-gpu duration-500"
-          onClick={handleClick}
-        />
-      ) : (
-        <FontAwesomeIcon
-          icon={faClose}
-          className="text-3xl cursor-pointer mt-2 mr-2 hover:text-red-800 duration-100"
-          onClick={handleClick}
-        />
-      )}
+      <SettingsButton active={active} setActive={setActive} />
       {active ? (
-        <div className={'settings__container'}>
-          <div className="settings__blur-slider-wpp">
-            <Slider
-              label="Blur"
-              step={1}
-              maxValue={30}
-              minValue={0}
-              defaultValue={
-                JSON.parse(window.localStorage.getItem('config'))?.blur || 0
-              }
-              className="slider"
-              color="foreground"
-              onChange={handleChangeSliderBlur}
-            />
-          </div>
+        <div
+          className={'w-96 h-screen bg-white rounded-s p-4 flex flex-col z-200'}
+        >
+          <SettingsBlur />
         </div>
       ) : (
         ''

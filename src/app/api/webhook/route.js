@@ -4,12 +4,7 @@ import { NextResponse } from 'next/server'
 import { dbConnect } from '../../../db/db'
 import User from '../../../db/models/User'
 
-export async function GET(req) {
-  return NextResponse.json({ congratulatio: 'lfkadkj' })
-}
-
 export async function POST(req) {
-  // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
 
   if (!WEBHOOK_SECRET) {
@@ -18,29 +13,24 @@ export async function POST(req) {
     )
   }
 
-  // Get the headers
   const headerPayload = headers()
   const svixId = headerPayload.get('svix-id')
   const svixTimestamp = headerPayload.get('svix-timestamp')
   const svixSignature = headerPayload.get('svix-signature')
 
-  // If there are no headers, error out
   if (!svixId || !svixTimestamp || !svixSignature) {
     return new Response('Error occured -- no svix headers', {
       status: 400
     })
   }
 
-  // Get the body
   const payload = await req.json()
   const body = JSON.stringify(payload)
 
-  // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET)
 
   let evt
 
-  // Verify the payload with the headers
   try {
     // eslint-disable-next-line no-unused-vars
     evt = wh.verify(body, {

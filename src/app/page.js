@@ -1,18 +1,16 @@
 import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
-import { auth } from '@clerk/nextjs'
+import GetSpotify from './ui/getSpotfy_tmp/GetSpotify'
 // ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML
 //! agregar los atajos de teclado con un custom hook
 
-export default async function Page() {
-  const { userId } = auth()
-
-  console.log(userId)
+export default async function Page({ searchParams }) {
   return (
     <div className="grid place-content-center h-screen w-screen  md:mx-auto main__page-container backdrop-blur">
       <Nav />
       <Search />
+      <GetSpotify searchParams={searchParams} />
     </div>
   )
 }
