@@ -7,7 +7,7 @@ import('./nav.css')
 
 export default function Nav() {
   return (
-    <nav className="absolute right-0 top-0 w-auto h-auto flex justify-between z-100">
+    <nav className="absolute right-0 top-0 w-auto h-auto flex justify-between z-50">
       <User />
       <Settings />
     </nav>

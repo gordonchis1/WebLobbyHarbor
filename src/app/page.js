@@ -1,6 +1,6 @@
 import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
-import GetSpotify from './ui/getSpotfy_tmp/GetSpotify'
+import GetSpotify from './ui/spotfy__auth/GetSpotify'
 // ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML
 //! agregar los atajos de teclado con un custom hook

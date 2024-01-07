@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import SettingsButton from '../settings__button/SettingsButton'
 import SettingsBlur from '../settings__blur/SettingsBlur'
+import SettingsConnections from '../settings__connections/SettingsConnections'
 
 //! componetizar
 //! arreglar la forma de conservar las settings
@@ -25,10 +26,9 @@ export default function Settings() {
     <>
       <SettingsButton active={active} setActive={setActive} />
       {active ? (
-        <div
-          className={'w-96 h-screen bg-white rounded-s p-4 flex flex-col z-200'}
-        >
+        <div className={'w-96 h-screen bg-white rounded-s p-4 flex flex-col'}>
           <SettingsBlur />
+          <SettingsConnections />
         </div>
       ) : (
         ''
