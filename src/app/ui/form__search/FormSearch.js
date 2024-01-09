@@ -3,7 +3,6 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { KEYS } from '../../lib/constants'
 import SearchInput from '../search__input/SearchInput'
 import SearchLogo from '../search__logo/SearchLogo'
-import('./formsearch.css')
 
 // !arreglar el codigo en las condiciones al enviar
 // !validar las props

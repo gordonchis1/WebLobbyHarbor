@@ -39,6 +39,13 @@ export default function Suggested({ setInput, value, completeInput }) {
         results={results}
         setInput={setInput}
       />
+      {key === '!s' ? (
+        <div className="w-full h-auto">
+          <h3>Spotify</h3>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   )
 }

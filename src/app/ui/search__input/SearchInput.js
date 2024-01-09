@@ -58,7 +58,6 @@ export default function SearchInput({
       type="text"
       placeholder="Search"
       onChange={(event) => handleSearch(event)}
-      defaultValue={searchParams.get('query')?.toString()}
       value={completeInput.input}
     ></input>
   )

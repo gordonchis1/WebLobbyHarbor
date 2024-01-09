@@ -9,7 +9,7 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
   }
 
   return (
-    <>
+    <div className="w-full h-auto mb-3 flex">
       {results.map((element) => {
         return (
           <li
@@ -24,7 +24,7 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
               <Image
                 src={KEYS[element].img.src}
                 width={25}
-                height={20}
+                height={25}
                 className="suggested__img-logo"
                 alt="suggestion logo"
               ></Image>
@@ -33,6 +33,6 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
           </li>
         )
       })}
-    </>
+    </div>
   )
 }

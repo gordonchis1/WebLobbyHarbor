@@ -8,7 +8,9 @@ export default authMiddleware({
     '/api',
     '/api/user',
     '/api/webhooks(.*)',
-    '/api/webhook'
+    '/api/webhook',
+    '/api/login/spotify',
+    '/api/login'
   ]
 })
 

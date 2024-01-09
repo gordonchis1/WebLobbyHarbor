@@ -1,6 +1,5 @@
 import Settings from '../settings/settings'
 import User from '../auth/Auth'
-import('./nav.css')
 
 //! componetizar los elementos
 //! aggregar animacion container
