@@ -19,7 +19,7 @@ export async function GET(req, res) {
       'https://accounts.spotify.com/api/token',
       {
         code,
-        redirect_uri: 'http://localhost:3000/api/login/',
+        redirect_uri: 'https://weblobbyharbor.com/api/login/',
         grant_type: 'authorization_code'
       },
       {

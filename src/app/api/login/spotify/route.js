@@ -4,7 +4,7 @@ import { stringify } from 'querystring'
 // import { parse, serialize } from 'cookie'
 
 const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID_SPOTIFY
-const redirect = 'http://localhost:3000/api/login/'
+const redirect = 'https://weblobbyharbor.com/api/login/'
 
 export async function GET(req) {
   const scope = 'user-read-private user-read-email'
