@@ -19,7 +19,7 @@ export async function GET(req, res) {
       'https://accounts.spotify.com/api/token',
       {
         code,
-        redirect_uri: 'https://weblobbyharbor.com/api/login/',
+        redirect_uri: 'https://loading-bay.vercel.app/api/login',
         grant_type: 'authorization_code'
       },
       {
@@ -40,7 +40,7 @@ export async function GET(req, res) {
       sameSite: false
     })
 
-    return NextResponse.redirect('http://localhost:3000/')
+    return NextResponse.redirect('https://loading-bay.vercel.app')
   } catch (error) {
     return NextResponse.json(error)
   }
