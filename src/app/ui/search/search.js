@@ -7,8 +7,7 @@ import('./search.css')
 
 export default function Search() {
   const [input, setInput] = useState({
-    status: false,
-    input: ''
+    status: false
   })
 
   return (

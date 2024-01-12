@@ -1,7 +1,7 @@
 /*!agregar la variable de radius a la ruta*/
 
 .suggested__container {
-  width: calc(100% - 30px);
+  width: 98%;
   background: #ffffffc0;
   height: auto;
 
@@ -25,7 +25,7 @@
 }
 
 .suggested__container-active {
-  animation: 0.5s suggested__container-active forwards;
+  animation: 0.3s suggested__container-active forwards;
 }
 
 @keyframes suggested__container-active {
@@ -33,12 +33,10 @@
     transform: translateY(-50px);
     opacity: 0;
   }
-
   50% {
-    transform: translateY(-50px);
+    transform: translateY(-30px);
     opacity: 0;
   }
-
   100% {
     transform: translateY(0px);
     opacity: 1;

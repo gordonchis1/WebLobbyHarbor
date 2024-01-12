@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
+    "@clerk/nextjs": "^4.29.3",
     "@clerk/themes": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -26,7 +26,8 @@
     "querystring": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "svix": "^1.15.0"
+    "svix": "^1.15.0",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/cookie": "^0.6.0",

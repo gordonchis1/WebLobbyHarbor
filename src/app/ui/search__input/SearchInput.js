@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { keysOfKeys } from '../../lib/constants'
+import { useDebouncedCallback } from 'use-debounce'
 import('./searchinput.css')
 
 export default function SearchInput({
@@ -16,9 +17,10 @@ export default function SearchInput({
     inputRef.current.focus()
   }, [])
 
-  useEffect(() => {
+  const handleSearch = (event) => {
+    const value = event.target.value
     const params = new URLSearchParams(searchParams)
-    const arraySinEspacios = completeInput.input.split(' ')
+    const arraySinEspacios = value.split(' ')
     const cleanSearch = keysOfKeys.includes(arraySinEspacios[0])
       ? arraySinEspacios.slice(1).join(' ')
       : arraySinEspacios[0].startsWith('!')
@@ -30,20 +32,13 @@ export default function SearchInput({
     if (initKey[0]) params.set('key', initKey[0])
     else params.delete('key')
 
-    if (completeInput.input) params.set('query', cleanSearch)
+    if (value) params.set('query', cleanSearch)
     else params.delete('query')
 
     route.replace(`${pathname}?${params.toString()}`)
     if (completeInput.status && inputRef.current) {
       inputRef.current.focus()
     }
-  }, [completeInput.input, completeInput.status])
-
-  const handleSearch = (event) => {
-    setInput({
-      ...completeInput,
-      input: event.target.value
-    })
   }
 
   return (
@@ -58,7 +53,9 @@ export default function SearchInput({
       type="text"
       placeholder="Search"
       onChange={(event) => handleSearch(event)}
-      value={completeInput.input}
+      defaultValue={`${searchParams.get('key')?.toString() || ''} ${
+        searchParams.get('query')?.toString() || ''
+      } `}
     ></input>
   )
 }

@@ -22,13 +22,11 @@ body {
   overflow: hidden;
 }
 
-
-.main__page-container{
+.main__page-container {
   background-size: cover;
   background-image: var(--main-background-image);
-  backdrop-filter: blur(4px) ;
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
 }
 
 .main__page-container::before {

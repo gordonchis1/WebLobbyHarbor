@@ -13,6 +13,7 @@ export default function FormSearch({ setInput, value, completeInput }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    route.replace('', { scroll: false })
     const filter = KEYS[searchParams.get('key')?.toString()]
 
     const value = `${
@@ -24,7 +25,10 @@ export default function FormSearch({ setInput, value, completeInput }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex z-10">
+    <form
+      onSubmit={handleSubmit}
+      className="flex z-10 w-full flex justify-center"
+    >
       <SearchLogo searchParams={searchParams} />
       <SearchInput
         completeInput={completeInput}

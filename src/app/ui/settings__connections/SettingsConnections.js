@@ -2,10 +2,12 @@ import { faSpotify } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import Cookie from 'js-cookie'
+import { useState } from 'react'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 //! componetizar
 export default function SettingsConnections() {
-  const isConnected = Cookie.get('_spotify')
+  const [isConnected, setIsConected] = useState(Cookie.get('_spotify'))
   console.log(isConnected)
 
   return (
@@ -20,7 +22,18 @@ export default function SettingsConnections() {
           <FontAwesomeIcon icon={faSpotify} className="text-2xl" />
         </Link>
       ) : (
-        'Dissconect'
+        <div className="p-4 bg-green-600 rounded justify-between w-full flex items-center">
+          <p>Spotify</p>
+          <button
+            className="p-2 rounded bg-blur-bg hover:bg-red duration-300"
+            onClick={() => {
+              Cookie.remove('_spotify')
+              setIsConected(false)
+            }}
+          >
+            Connected <FontAwesomeIcon icon={faCheck} />
+          </button>
+        </div>
       )}
     </div>
   )
