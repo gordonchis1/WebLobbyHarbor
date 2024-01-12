@@ -1,6 +1,5 @@
 import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
-import { spotifySearch } from './lib/server__acctions'
 
 // ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML

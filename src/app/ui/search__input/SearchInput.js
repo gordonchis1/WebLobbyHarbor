@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { keysOfKeys } from '../../lib/constants'
-import { useDebouncedCallback } from 'use-debounce'
 import('./searchinput.css')
 
 export default function SearchInput({
