@@ -50,7 +50,6 @@ export async function POST(req) {
   const email = JSON.parse(body).data.email_addresses[0].email_address
   try {
     await dbConnect()
-    console.log('db connected')
     const newUser = new User({
       username,
       userId: id,

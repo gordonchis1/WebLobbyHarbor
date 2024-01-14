@@ -13,6 +13,7 @@ export default function SuggestedSpotify({ input }) {
 
   useEffect(() => {
     const getSpotifySearch = async () => {
+      console.log('jkfdalfjñs')
       const response = await spotifySearch(input)
       setResponse(response)
     }

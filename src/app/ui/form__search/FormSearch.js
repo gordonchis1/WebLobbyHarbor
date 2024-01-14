@@ -13,7 +13,6 @@ export default function FormSearch({ setInput, value, completeInput }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    route.replace('', { scroll: false })
     const filter = KEYS[searchParams.get('key')?.toString()]
 
     const value = `${

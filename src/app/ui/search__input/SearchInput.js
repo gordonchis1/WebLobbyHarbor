@@ -1,19 +1,21 @@
 import { useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { keysOfKeys } from '../../lib/constants'
 import('./searchinput.css')
 
-export default function SearchInput({
-  setInput,
-  completeInput,
-  searchParams,
-  route
-}) {
+//! arreglar el problema de la query que esta en el useEffect ya que esto podria afectar en el futuro
+
+// ? ver si es viable dejar de usar la url para ahorrar codigo ya que tenemos un estado y las querys
+
+export default function SearchInput({ setInput, completeInput, route }) {
+  const searchParams = useSearchParams()
   const pathname = usePathname()
   const inputRef = useRef()
 
   useEffect(() => {
     inputRef.current.focus()
+
+    route.push('/?')
   }, [])
 
   const handleSearch = (event) => {
@@ -26,6 +28,7 @@ export default function SearchInput({
         ? arraySinEspacios.slice(1).join(' ')
         : arraySinEspacios.join(' ')
 
+    setInput({ ...completeInput, input: value })
     const initKey = arraySinEspacios.filter((elemento) => elemento !== '')
 
     if (initKey[0]) params.set('key', initKey[0])
@@ -52,9 +55,7 @@ export default function SearchInput({
       type="text"
       placeholder="Search"
       onChange={(event) => handleSearch(event)}
-      defaultValue={`${searchParams.get('key')?.toString() || ''} ${
-        searchParams.get('query')?.toString() || ''
-      } `}
+      value={completeInput.input}
     ></input>
   )
 }

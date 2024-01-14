@@ -2,8 +2,6 @@ import SuggestedSpotifyArtists from '../suggested__spotify-artists/SuggestedSpot
 import SuggestedSpotifyCover from '../suggested__spotify-cover/SuggestedSpotifyCover'
 
 export default function SuggestedSpotifyTracks({ response }) {
-  console.log(response)
-
   return (
     <div className="overflow-x-scroll h-min">
       {response?.tracks ? (

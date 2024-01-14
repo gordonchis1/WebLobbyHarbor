@@ -1,12 +1,10 @@
 import { Image } from '@nextui-org/react'
 
 export default function SuggestedSpotifyArtistsProfile({ response }) {
-  console.log(response.artists)
   return (
     <div className={'overflow-x-scroll h-min'}>
       <div className="flex min-w-full grow w-fit justify-between h-fit">
         {response.artists.items.map((element) => {
-          console.log(element)
           return (
             <div
               key={element.id}

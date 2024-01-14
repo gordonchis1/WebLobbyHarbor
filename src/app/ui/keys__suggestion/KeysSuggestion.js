@@ -1,11 +1,17 @@
+import { useRouter } from 'next/navigation'
 import { KEYS } from '../../lib/constants'
 import Image from 'next/image'
 import('./keysuggestion.css')
 
 export default function KeySuggestion({ results, completeInput, setInput }) {
+  const router = useRouter()
+
   const handleClick = (element) => (event) => {
     event.preventDefault()
+    const params = new URLSearchParams()
+    params.set('key', element + '')
     setInput({ ...completeInput, input: element + ' ' })
+    router.push(`?${params}`)
   }
 
   return (
