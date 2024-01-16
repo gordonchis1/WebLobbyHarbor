@@ -8,7 +8,6 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 //! componetizar
 export default function SettingsConnections() {
   const [isConnected, setIsConected] = useState(Cookie.get('_spotify'))
-  console.log(isConnected)
 
   return (
     <div className="text-black mt-5 flex flex-col w-full">

@@ -15,13 +15,12 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
   }
 
   return (
-    <div className="w-full h-auto mb-3 flex">
+    <ul className="w-full h-auto mb-3 flex flex-wrap flex-row ">
       {results.map((element) => {
         return (
           <li
             key={element}
-            className="suggested__result-container"
-            style={{ width: '100%', height: '100%' }}
+            className="cursor-pointer flex justify-center shrink grow m-w-[98px] mt-[2px] items-center flex-col ml-[5px] relative rounded p-[5px] overflow-hidden bg-[#58585852] suggested__result-container"
           >
             <button
               className={'suggested__result-btn'}
@@ -31,14 +30,14 @@ export default function KeySuggestion({ results, completeInput, setInput }) {
                 src={KEYS[element].img.src}
                 width={25}
                 height={25}
-                className="suggested__img-logo"
-                alt="suggestion logo"
+                className="w-[25px] h-[25px] object-contain"
+                alt="Suggestion logo"
               ></Image>
               <p>{element}</p>
             </button>
           </li>
         )
       })}
-    </div>
+    </ul>
   )
 }

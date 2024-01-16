@@ -1,32 +1,47 @@
 'use server'
-
-import { faAdd, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Card, Chip } from '@nextui-org/react'
+import {
+  Chip,
+  CircularProgress,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem
+} from '@nextui-org/react'
 import AppsCard from '../apps__card/AppsCard'
+import AppsAddApp from '../apps__add-app/AppsAddApp'
+import { Suspense } from 'react'
 
 // ! Agregar el add desde otro componente ya onClick no admite server side
+// ! las cards son cache solo se revalidan al agregar un elemento
 // ! https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.instagram.com&size=50 para recuperar el fav icon
 
 export default async function FastApps() {
   return (
-    <div className="h-auto z-5 h-auto w-auto absolute left-[50%] top-[26%] -translate-y-1/2 -translate-x-1/2">
-      <div className="w-full h-auto flex justify-between items-center ">
-        <Chip className="mb-2 text-xl font-bold">Apps </Chip>
-        <FontAwesomeIcon
-          icon={faGear}
-          className="mb-2 text-2xl font-bold cursor-pointer hover:rotate-90 transform-gpu duration-500"
-        />
-      </div>
-      <div className="flex px-4">
-        <AppsCard name={'instagram'} url={'http://www.instagram.com'} />
-        <Card
-          radius="sm"
-          className="border-none w-fit bg-transparent p-3 flex justify-center items-center bg-blur-bg cursor-pointer"
-        >
-          <FontAwesomeIcon icon={faAdd} className="text-3xl" />
-          <p className="font-semibold text-black ">Add</p>
-        </Card>
+    <div className="h-screen z-5 w-screen flex flex-col items-center justify-center top-0 left-0 w-auto absolute">
+      {/* hacer que este sea el contenedor del bento y de las apps para acomodar la app  */}
+      <div className="flex flex-col max-w-[75%]">
+        <div className="flex justify-between items-center w-full h-full">
+          <Chip className="mb-2 text-xl font-bold">Apps </Chip>
+          <Dropdown>
+            <DropdownTrigger>
+              <FontAwesomeIcon
+                icon={faGear}
+                className="mb-2 text-2xl font-bold cursor-pointer hover:rotate-90 transform-gpu duration-500"
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Dynamic Actions">
+              <DropdownItem>Edit</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+        <div className="flex  flex-wrap mb-2 w-full justify-center">
+          <Suspense fallback={<CircularProgress aria-label="Loading..." />}>
+            <AppsCard />
+          </Suspense>
+          <AppsAddApp />
+        </div>
       </div>
     </div>
   )

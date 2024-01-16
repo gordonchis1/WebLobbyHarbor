@@ -1,10 +1,6 @@
 import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
 import FastApps from './ui/fast__apps/FastApps'
-import { cookies } from 'next/headers'
-import { auth } from '@clerk/nextjs'
-import User from '../db/models/User'
-import { dbConnect } from '../db/db'
 
 // ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML

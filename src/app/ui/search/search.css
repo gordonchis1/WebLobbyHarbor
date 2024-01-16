@@ -1,7 +1,5 @@
 .search-wpp {
   position: absolute;
-  margin: auto;
-
   display: flex;
   width: 85%;
   max-width: 1800px;
@@ -11,5 +9,5 @@
   align-items: center;
   left: 50%;
   transform: translate(-50%);
-  z-index: 20;
+  z-index: 40;
 }

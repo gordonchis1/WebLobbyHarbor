@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import { KEYS } from '../../lib/constants'
-import('./searchlogo.css')
 //! arreglar la condicion
 
 export default function SearchLogo({ searchParams }) {
   return (
-    <div className="form__container-img">
+    <div className="bg-white h-full py-[5px] pr-[5px] pl-[10px] rounded-l-[30px]">
       <Image
         src={
           KEYS[searchParams.get('key')?.toString()]
@@ -14,7 +13,7 @@ export default function SearchLogo({ searchParams }) {
         }
         width={35}
         height={35}
-        className="logo__img"
+        className="object-contain "
         alt="logo"
         priority={true}
       />

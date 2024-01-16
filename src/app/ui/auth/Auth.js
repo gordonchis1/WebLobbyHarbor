@@ -3,9 +3,6 @@ import { useUser } from '@clerk/nextjs'
 import AuthUser from '../auth__user/AuthUser'
 import AuthSignButtons from '../auth__sign-buttons/AuthSignButtons'
 import { Button } from '@nextui-org/react'
-import('./auth.css')
-
-// ! componetizar
 
 export default function User() {
   const { user, isSignedIn, isLoaded } = useUser()
@@ -24,7 +21,7 @@ export default function User() {
   }
 
   return (
-    <div className="user__container">
+    <div className="mt-[18px] mr-[20px]">
       {isSignedIn && user ? <AuthUser user={user} /> : <AuthSignButtons />}
     </div>
   )
