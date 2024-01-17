@@ -129,7 +129,27 @@ export const getUserApps = async () => {
     const decodded = jwt.verify(token, process.env.CLERCK_JWT_SECRET)
 
     const app = await App.find({ user: decodded.sub })
-    return app
+    return { props: { apps: app }, revalidate: 0 }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const deleteUserApps = async (id, userId) => {
+  dbConnect()
+  const token = cookies().get('__session')?.value
+
+  if (!token) {
+    return
+  }
+
+  try {
+    const deleteApp = await App.findByIdAndDelete(id)
+    const user = await User.findOne({ userId })
+    user.apps = user.apps.filter((element) => element.toString() !== id)
+    await user.save()
+    revalidatePath('/')
+    console.log(deleteApp)
   } catch (error) {
     console.error(error)
   }
