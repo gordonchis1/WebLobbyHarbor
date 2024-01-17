@@ -12,6 +12,7 @@ export default async function Page({ searchParams }) {
       <Nav />
       <Search />
       <FastApps searchParams={searchParams} />
+      {/* <Bento></Bento> */}
     </div>
   )
 }

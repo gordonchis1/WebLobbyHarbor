@@ -23,7 +23,7 @@ export default function AppsFormAdd({ setIsActive, setValue, value }) {
   }, [state])
 
   return (
-    <div className="absolute w-[45vw] h-[40vh] bg-blur-bg z-20 rounded left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 p-2  backdrop-blur-md flex flex-col justify-center items-center">
+    <div className="absolute w-[45vw]  h-[40vh] bg-blur-bg z-20 rounded left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 p-2  backdrop-blur-md flex flex-col justify-center items-center">
       <h2 className="text-2xl text-black font-bold">Create new App</h2>
       {state.error && (
         <div
