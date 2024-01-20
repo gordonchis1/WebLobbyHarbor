@@ -33,10 +33,8 @@ export default function Suggested({ setInput, value, completeInput }) {
 
   return (
     <div
-      className={`suggested__container ${
-        completeInput.status
-          ? 'suggested__container-active'
-          : 'suggested__container-desactive'
+      className={`suggested__container-desactive ${
+        completeInput.status ? 'suggested__container' : ''
       }`}
     >
       <KeysSuggestion
