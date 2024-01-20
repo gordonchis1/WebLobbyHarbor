@@ -1,6 +1,7 @@
 'use server'
 
 import { ScrollShadow } from '@nextui-org/react'
+import Image from 'next/image'
 
 export default async function BentoFotballResultsLegue({ data }) {
   return (

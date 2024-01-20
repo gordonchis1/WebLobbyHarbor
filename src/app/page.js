@@ -2,6 +2,8 @@ import Search from './ui/search/search'
 import Nav from './ui/nav/nav'
 import FastApps from './ui/fast__apps/FastApps'
 import Bento from './ui/bento/Bento'
+import { Suspense } from 'react'
+import { BentoSkeleton } from './ui/Skeletons/Skeletons'
 
 // ! optimizar los iconos de fontawesome
 //! arreglar las etiquetas de HTML
@@ -15,7 +17,10 @@ export default async function Page({ searchParams }) {
         <Search />
         <div className="flex flex-col h-auto w-auto">
           <FastApps searchParams={searchParams} />
-          <Bento></Bento>
+
+          <Suspense fallback={<BentoSkeleton />}>
+            <Bento></Bento>
+          </Suspense>
         </div>
       </div>
     </div>

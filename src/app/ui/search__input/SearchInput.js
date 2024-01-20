@@ -13,8 +13,6 @@ export default function SearchInput({ setInput, completeInput, route }) {
   const inputRef = useRef()
 
   useEffect(() => {
-    inputRef.current.focus()
-
     route.push('/?')
   }, [])
 

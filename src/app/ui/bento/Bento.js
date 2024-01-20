@@ -1,7 +1,5 @@
-import { Suspense } from 'react'
 import BentoFotballResults from '../bento__football-results/BentoFootballRestults'
 import BentoFotballResultsSecondary from '../bento__fotball-results-secondary/BentoFotballResultsSecondary'
-import { Skeleton } from '@nextui-org/react'
 import BentoWeather from '../bento__weather/BentoWeather'
 
 export default async function Bento() {
@@ -19,26 +17,8 @@ export default async function Bento() {
       <div className="row-span-1 rounded-xl border-2 border-slate-400/10 bg-neutral-100 p-4 dark:bg-neutral-900 flex justify-center items-center text-2xl text-black col-span-2">
         5
       </div>
-      <Suspense
-        fallback={
-          <Skeleton
-            className="rounded-xl row-span-2 col-span-1"
-            isLoaded={false}
-          ></Skeleton>
-        }
-      >
-        <BentoFotballResultsSecondary></BentoFotballResultsSecondary>
-      </Suspense>
-      <Suspense
-        fallback={
-          <Skeleton
-            className="rounded-xl row-span-2 col-span-2"
-            isLoaded={false}
-          ></Skeleton>
-        }
-      >
-        <BentoFotballResults></BentoFotballResults>
-      </Suspense>
+      <BentoFotballResultsSecondary></BentoFotballResultsSecondary>
+      <BentoFotballResults></BentoFotballResults>
       <BentoWeather></BentoWeather>
     </div>
   )

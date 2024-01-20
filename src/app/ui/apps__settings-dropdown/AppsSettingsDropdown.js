@@ -3,7 +3,8 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Button
 } from '@nextui-org/react'
 import { faGear, faPencil } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,10 +26,9 @@ export default function AppsSettingsDropDown({ searchParams }) {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <FontAwesomeIcon
-          icon={faGear}
-          className="mb-2 text-2xl font-bold cursor-pointer hover:rotate-90 transform-gpu duration-500"
-        />
+        <Button isIconOnly>
+          <FontAwesomeIcon icon={faGear} className="text-2xl font-bold" />
+        </Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Static Actions"
