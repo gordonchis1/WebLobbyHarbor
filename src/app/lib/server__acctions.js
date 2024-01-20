@@ -154,3 +154,26 @@ export const deleteUserApps = async (id, userId) => {
     console.error(error)
   }
 }
+
+export const getFotballResults = async (url) => {
+  try {
+    const getResults = await axios.get(url, {
+      headers: { 'X-Auth-Token': '69fd5f85acd8417f9bfe982135c39c78' }
+    })
+    return getResults.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getCurrentWeather = async (lat, lon) => {
+  try {
+    const weather = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=815d9f78e6ca526120ae91149c2dde32&units=metric`
+    )
+
+    return weather.data
+  } catch (error) {
+    console.log(error)
+  }
+}

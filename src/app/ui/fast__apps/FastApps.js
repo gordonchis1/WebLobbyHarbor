@@ -12,9 +12,8 @@ import AppsEditedConfirm from '../apps__edited-confirm/AppsEditedConfirm'
 
 export default async function FastApps({ searchParams }) {
   return (
-    <div className="h-screen z-5 w-screen flex flex-col items-center justify-center top-0 left-0 w-auto absolute">
-      {/* hacer que este sea el contenedor del bento y de las apps para acomodar la app  */}
-      <div className="flex flex-col max-w-[75%]">
+    <>
+      <div className="flex flex-col max-w-[100%] mb-12">
         <div className="flex justify-between items-center w-full h-full">
           <Chip className="mb-2 text-xl font-bold">Apps </Chip>
           <AppsSettingsDropdown
@@ -29,6 +28,6 @@ export default async function FastApps({ searchParams }) {
         </div>
         <AppsEditedConfirm searchParams={searchParams} />
       </div>
-    </div>
+    </>
   )
 }

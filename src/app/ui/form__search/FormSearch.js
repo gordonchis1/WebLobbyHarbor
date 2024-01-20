@@ -24,10 +24,7 @@ export default function FormSearch({ setInput, value, completeInput }) {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex z-10 w-full flex justify-center"
-    >
+    <form onSubmit={handleSubmit} className="flex z-10 w-full justify-center">
       <SearchLogo searchParams={searchParams} />
       <SearchInput
         completeInput={completeInput}
