@@ -1,41 +1,23 @@
-import { useEffect, useRef } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { keysOfKeys } from '../../lib/constants'
-import('./searchinput.css')
+import { useRef } from 'react'
 
-//! arreglar el problema de la query que esta en el useEffect ya que esto podria afectar en el futuro
-
-// ? ver si es viable dejar de usar la url para ahorrar codigo ya que tenemos un estado y las querys
-
-export default function SearchInput({ setInput, completeInput, route }) {
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
+export default function SearchInput({ setInput, completeInput }) {
   const inputRef = useRef()
-
-  useEffect(() => {
-    route.push('/?')
-  }, [])
 
   const handleSearch = (event) => {
     const value = event.target.value
-    const params = new URLSearchParams(searchParams)
     const arraySinEspacios = value.split(' ')
-    const cleanSearch = keysOfKeys.includes(arraySinEspacios[0])
+    const cleanSearch = arraySinEspacios[0].startsWith('!')
       ? arraySinEspacios.slice(1).join(' ')
-      : arraySinEspacios[0].startsWith('!')
-        ? arraySinEspacios.slice(1).join(' ')
-        : arraySinEspacios.join(' ')
+      : arraySinEspacios.join(' ')
 
-    setInput({ ...completeInput, input: value })
     const initKey = arraySinEspacios.filter((elemento) => elemento !== '')
+    setInput({
+      ...completeInput,
+      input: value,
+      key: initKey[0],
+      query: cleanSearch
+    })
 
-    if (initKey[0]) params.set('key', initKey[0])
-    else params.delete('key')
-
-    if (value) params.set('query', cleanSearch)
-    else params.delete('query')
-
-    route.replace(`${pathname}?${params.toString()}`)
     if (completeInput.status && inputRef.current) {
       inputRef.current.focus()
     }
@@ -45,11 +27,9 @@ export default function SearchInput({ setInput, completeInput, route }) {
     <input
       ref={inputRef}
       onFocus={() => setInput({ ...completeInput, status: true })}
-      className={
-        completeInput.status
-          ? 'form__input-search form__input-search-active'
-          : 'form__input-search form__input-search-inactive'
-      }
+      className={`outline-none text-black rounded-r-[30px] duration-300 ease-[cubic-bezier(0.37, 0, 0.63, 1)] shadow-xl px-[20px] ${
+        completeInput.status ? 'w-[100%]' : 'w-[30vw]'
+      }`}
       type="text"
       placeholder="Search"
       onChange={(event) => handleSearch(event)}

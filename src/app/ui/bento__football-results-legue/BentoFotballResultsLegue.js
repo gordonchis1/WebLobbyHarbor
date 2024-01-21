@@ -29,13 +29,17 @@ export default async function BentoFotballResultsLegue({ data }) {
                         <p className="mr-2 truncate">
                           {element.homeTeam.shortName || 'to be defined'}
                         </p>
-                        <p>{element.score.fullTime.home || '-'}</p>
+                        <p className="text-lg font-bold">
+                          {element.score.fullTime.home || '-'}
+                        </p>
                       </div>
                     </div>
                     <p>VS</p>
                     <div className="flex max-w-[182px] min-w-[182px] justify-end text-base px-2">
                       <div className="flex w-full justify-between">
-                        <p>{element.score.fullTime.away || '-'}</p>
+                        <p className="text-lg font-bold">
+                          {element.score.fullTime.away || '-'}
+                        </p>
                         <p className="ml-2 truncate text-center">
                           {element.awayTeam.shortName || 'to be defined'}
                         </p>

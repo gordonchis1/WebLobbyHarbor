@@ -1,11 +1,8 @@
 'use client'
-
-import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { keysOfKeys } from '../../lib/constants'
 import KeysSuggestion from '../keys__suggestion/KeysSuggestion'
 import SuggestedSpotify from '../suggested__spotify/SuggestedSpotify'
-import('./suggested.css')
 
 //! arreglar bug espasios
 //! arreglar los logos
@@ -13,10 +10,9 @@ import('./suggested.css')
 //! cambiar la condicional de spotify por un objeto con condicion y componente
 
 export default function Suggested({ setInput, value, completeInput }) {
-  const searchParams = useSearchParams()
-  const input = searchParams.get('query')
-  const key = searchParams.get('key')
   const [results, setResults] = useState(keysOfKeys)
+  const key = completeInput?.key
+  const query = completeInput?.query
 
   useEffect(() => {
     if (key?.startsWith('!')) {
@@ -26,23 +22,25 @@ export default function Suggested({ setInput, value, completeInput }) {
     } else if (!key) {
       setResults(keysOfKeys)
     }
-    if (input) {
+    if (query) {
       setResults([])
     }
-  }, [value, key, input])
+  }, [value, key, query])
 
   return (
     <div
-      className={`suggested__container-desactive ${
-        completeInput.status ? 'suggested__container' : ''
-      }`}
+      className={`w-[98%] bg-blur-bg h-auto rounded-b-[4px] text-black py-[15px] px-[10px] relative -top[2px] flex flex-col items-center justify-center duration-300 ${
+        !completeInput.status
+          ? '-translate-y-[50%] opacity-0 hidden'
+          : 'translate-y-0 top-0 opacity-1'
+      } `}
     >
       <KeysSuggestion
         completeInput={completeInput}
         results={results}
         setInput={setInput}
       />
-      {key === '!s' ? <SuggestedSpotify input={input}></SuggestedSpotify> : ''}
+      {key === '!s' ? <SuggestedSpotify input={query}></SuggestedSpotify> : ''}
     </div>
   )
 }

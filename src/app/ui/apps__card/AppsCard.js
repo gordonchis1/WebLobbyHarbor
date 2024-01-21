@@ -19,10 +19,13 @@ export default async function AppsCard({ searchParams }) {
             as={isEdited === 'true' ? '' : Link}
             radius="sm"
             className={
-              'border-none w-fit bg-transparent px-3 py-1 flex justify-center items-center bg-blur-bg mr-3 max-w-[94px] mt-2'
+              'border-none w-fit px-3 py-1 flex justify-center items-center bg-blur-bg mr-3 max-w-[94px] mt-2'
             }
           >
-            <AppsCardEdited isEdited={isEdited} element={element} />
+            <AppsCardEdited
+              isEdited={isEdited}
+              element={JSON.stringify(element)}
+            />
             <Image
               alt="App logo"
               isZoomed

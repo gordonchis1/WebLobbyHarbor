@@ -6,7 +6,8 @@ import { deleteUserApps } from '../../lib/server__acctions'
 
 export default function AppsCardEdited({ isEdited, element }) {
   const handleClick = () => {
-    deleteUserApps(element._id, element.user)
+    const parsedElement = JSON.parse(element)
+    deleteUserApps(parsedElement._id, parsedElement.user)
   }
 
   return (

@@ -1,37 +1,40 @@
 'use client'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { KEYS } from '../../lib/constants'
 import SearchInput from '../search__input/SearchInput'
 import SearchLogo from '../search__logo/SearchLogo'
+import { Suspense } from 'react'
+import Suggested from '../suggested/suggested'
 
 // !arreglar el codigo en las condiciones al enviar
 // !validar las props
 
-export default function FormSearch({ setInput, value, completeInput }) {
-  const searchParams = useSearchParams()
+export default function FormSearch({ setInput, completeInput }) {
   const route = useRouter()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const filter = KEYS[searchParams.get('key')?.toString()]
+    const filter = KEYS[completeInput.key]
 
     const value = `${
-      filter
-        ? KEYS[searchParams.get('key')?.toString()]?.route
-        : KEYS['!g'].route
-    }${searchParams.get('query')?.toString()}`
+      filter ? KEYS[completeInput.key]?.route : KEYS['!g'].route
+    }${completeInput.query}`
     route.push(value)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex z-10 w-full justify-center">
-      <SearchLogo searchParams={searchParams} />
-      <SearchInput
-        completeInput={completeInput}
-        setInput={setInput}
-        searchParams={searchParams}
-        route={route}
-      />
-    </form>
+    <div className="flex flex-col w-full absolute justify-center items-center">
+      <form onSubmit={handleSubmit} className="flex z-10 w-full justify-center">
+        <SearchLogo completeInput={completeInput} />
+        <SearchInput completeInput={completeInput} setInput={setInput} />
+      </form>
+      <Suspense fallback={<p>loading</p>}>
+        <Suggested
+          setInput={setInput}
+          value={completeInput.input}
+          completeInput={completeInput}
+        />
+      </Suspense>
+    </div>
   )
 }

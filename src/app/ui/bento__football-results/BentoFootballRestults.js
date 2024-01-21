@@ -1,3 +1,5 @@
+'use server'
+
 import { getFotballResults } from '../../lib/server__acctions'
 import BentoFotballResultsLegue from '../bento__football-results-legue/BentoFotballResultsLegue'
 export default async function BentoFootallResults() {

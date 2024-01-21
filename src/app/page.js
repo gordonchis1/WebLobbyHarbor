@@ -15,9 +15,8 @@ export default async function Page({ searchParams }) {
       <Nav />
       <div className="h-[90vh] z-5 w-screen flex flex-col items-center  absolute left-0  bottom-0 justify-around">
         <Search />
-        <div className="flex flex-col h-auto w-auto">
+        <div className="flex flex-col h-auto w-[85vw] justify-center items-center">
           <FastApps searchParams={searchParams} />
-
           <Suspense fallback={<BentoSkeleton />}>
             <Bento></Bento>
           </Suspense>

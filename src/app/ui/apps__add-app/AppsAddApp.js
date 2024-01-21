@@ -22,7 +22,7 @@ export default function AppsAddApp() {
           setIsActive(!isActive)
           setValue({ url: null, nameFromUrl: null, name: null })
         }}
-        className="border-none bg-transparent px-5 flex flex-col justify-center items-center items-center bg-blur-bg cursor-pointer h-auto mt-2"
+        className="border-none px-5 flex flex-col justify-center items-center bg-blur-bg cursor-pointer h-auto mt-2"
       >
         <FontAwesomeIcon icon={faAdd} className="text-3xl" />
         <p className="font-semibold text-black ">Add</p>
