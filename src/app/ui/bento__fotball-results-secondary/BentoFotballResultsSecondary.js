@@ -9,7 +9,7 @@ export default async function BentoFotballResultsSecondary() {
   )
 
   return (
-    <div className="rounded-xl border-2 border-slate-400/10 bg-[#37003db1] p-4 dark:bg-neutral-900 text-2xl text-black row-span-2 col-span-1 ">
+    <div className="rounded-xl border-2 border-slate-400/10 bg-[#37003db1] p-4 dark: text-2xl text-black row-span-2 col-span-1 ">
       <BentoFotballResultsLegue
         data={getPremierLegue}
       ></BentoFotballResultsLegue>

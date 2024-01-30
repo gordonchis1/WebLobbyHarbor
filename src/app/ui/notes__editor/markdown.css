@@ -1,0 +1,52 @@
+.markdown__render h1 {
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 2px;
+  border-bottom: 1px solid #595959;
+  text-transform: capitalize;
+}
+
+.markdown__render h2 {
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 2px;
+  border-bottom: 1px solid #595959;
+}
+
+.markdown__render {
+  color: black;
+}
+
+.markdown__render input {
+  padding: 20px;
+}
+
+.markdown__render li {
+  list-style: circle;
+}
+
+.markdown__render ul {
+  margin-left: 5px;
+}
+
+.markdown__render table {
+  width: auto;
+  height: auto;
+}
+
+.markdown__render th {
+  background: rgba(0, 255, 247, 0.232);
+  padding: 5px 20px;
+  border: 2px solid black;
+}
+
+.markdown__render td {
+  padding: 5px 20px;
+  border: 2px solid black;
+}
+
+.markdown__render p {
+  font-size: 20px;
+}

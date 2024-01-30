@@ -9,7 +9,11 @@ export default async function BentoFotballResultsLegue({ data }) {
         <ScrollShadow className="max-h-[100%] w-[100%] min-w-[100%] overflow-y-scroll overflow-x-hidden">
           <div className="flex text-lg items-center w-full justify-between bg-blur-bg px-2 py-1 rounded">
             <p>{data.competition.name}</p>
-            <img src={data.competition.emblem} className="w-[40px] ml-2"></img>
+            <img
+              src={data.competition.emblem}
+              alt="competition emblem"
+              className="w-[40px] ml-2"
+            ></img>
           </div>
           <div>
             {data.matches.map((element) => {
@@ -25,6 +29,7 @@ export default async function BentoFotballResultsLegue({ data }) {
                         <img
                           src={element.homeTeam.crest}
                           className="w-[40px] h-[40px]"
+                          alt="home team crest"
                         ></img>
                         <p className="mr-2 truncate">
                           {element.homeTeam.shortName || 'to be defined'}
@@ -46,6 +51,7 @@ export default async function BentoFotballResultsLegue({ data }) {
                         <img
                           src={element.awayTeam.crest}
                           className="w-[40px] h-[40px]"
+                          alt="away team crest"
                         ></img>
                       </div>
                     </div>

@@ -1,13 +1,14 @@
 'use client'
 import { useEffect, useState } from 'react'
 import SettingsButton from '../settings__button/SettingsButton'
-import SettingsBlur from '../settings__blur/SettingsBlur'
-import SettingsConnections from '../settings__connections/SettingsConnections'
+import dynamic from 'next/dynamic'
 
 //! componetizar
 //! arreglar la forma de conservar las settings
 
 // ? agregar las miniaturas de los background
+
+const SettingsMenu = dynamic(() => import('../settings__menu/SettingsMenu'))
 
 export default function Settings() {
   const [active, setActive] = useState(false)
@@ -25,14 +26,7 @@ export default function Settings() {
   return (
     <>
       <SettingsButton active={active} setActive={setActive} />
-      {active ? (
-        <div className={'w-96 h-screen bg-white rounded-s p-4 flex flex-col'}>
-          <SettingsBlur />
-          <SettingsConnections />
-        </div>
-      ) : (
-        ''
-      )}
+      {active ? <SettingsMenu /> : ''}
     </>
   )
 }

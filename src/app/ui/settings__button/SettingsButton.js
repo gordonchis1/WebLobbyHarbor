@@ -11,13 +11,13 @@ export default function SettingsButton({ active, setActive }) {
       {!active ? (
         <FontAwesomeIcon
           icon={faGear}
-          className="text-3xl cursor-pointer mt-5 mr-5 hover:rotate-90 transform-gpu duration-500"
+          className="text-3xl cursor-pointer mt-5 mr-5 hover:rotate-90 transform-gpu duration-500 dark:text-black"
           onClick={handleClick}
         />
       ) : (
         <FontAwesomeIcon
           icon={faClose}
-          className="text-3xl cursor-pointer mt-2 mr-2 hover:text-red-800 duration-100"
+          className="text-3xl cursor-pointer mt-2 mr-2 hover:text-red-800 duration-100 dark:text-black"
           onClick={handleClick}
         />
       )}

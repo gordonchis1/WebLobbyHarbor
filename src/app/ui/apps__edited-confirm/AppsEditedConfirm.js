@@ -14,7 +14,7 @@ export default function AppsEditedConfirm({ searchParams }) {
     <>
       {searchParams.editApps === 'true' && (
         <Button
-          className="w-full h-[100px] rounded bg-customGreen flex justify-center items-center cursor-pointer"
+          className="w-full px-5 rounded bg-customGreen flex justify-center items-center cursor-pointer"
           onClick={handleClick}
         >
           Confirm

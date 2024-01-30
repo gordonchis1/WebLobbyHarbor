@@ -1,7 +1,9 @@
 'use client'
 import { useState } from 'react'
-import FormSearch from '../form__search/FormSearch'
 import ScreenCover from '../screen__cover/ScreenCover'
+import dynamic from 'next/dynamic'
+
+const FormSearch = dynamic(() => import('../form__search/FormSearch'))
 
 export default function Search() {
   const [input, setInput] = useState({

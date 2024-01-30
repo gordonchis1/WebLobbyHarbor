@@ -20,7 +20,8 @@ module.exports = {
         customGreen: 'rgb(102, 255, 51)',
         'eror-bg': 'rgba(255, 0, 0, 0.20)',
         'succes-bg': 'rgba(102, 255, 51, 0.20)',
-        'blur-bg': '#ffffffc0'
+        'blur-bg': '#ffffffc0',
+        'dark-regular': '#3b3b3b'
       }
     }
   },

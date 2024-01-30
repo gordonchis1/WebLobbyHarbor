@@ -4,7 +4,7 @@ import { KEYS } from '../../lib/constants'
 
 export default function SearchLogo({ completeInput }) {
   return (
-    <div className="bg-white h-full py-[5px] pr-[5px] pl-[10px] rounded-l-[30px]">
+    <div className="bg-white h-full py-[5px] pr-[5px] pl-[10px] rounded-l-[30px] dark:bg-[#3b3b3b]">
       <Image
         src={
           KEYS[completeInput?.key]

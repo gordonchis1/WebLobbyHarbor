@@ -27,7 +27,8 @@ export default function SearchInput({ setInput, completeInput }) {
     <input
       ref={inputRef}
       onFocus={() => setInput({ ...completeInput, status: true })}
-      className={`outline-none text-black rounded-r-[30px] duration-300 ease-[cubic-bezier(0.37, 0, 0.63, 1)] shadow-xl px-[20px] ${
+      tabIndex={1}
+      className={`text-black rounded-r-[30px] duration-300 ease-[cubic-bezier(0.37, 0, 0.63, 1)] shadow-xl px-[20px] ${
         completeInput.status ? 'w-[100%]' : 'w-[30vw]'
       }`}
       type="text"

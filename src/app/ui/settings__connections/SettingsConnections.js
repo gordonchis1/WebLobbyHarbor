@@ -11,7 +11,7 @@ export default function SettingsConnections() {
 
   return (
     <div className="text-black mt-5 flex flex-col w-full">
-      <h3 className="font-bold text-lg">Conexiones</h3>
+      <h3 className="font-bold text-lg mb-1 dark:text-white">Conexiones</h3>
       {!isConnected ? (
         <Link
           href={'/api/login/spotify'}

@@ -11,7 +11,7 @@ export default async function AppsCard({ searchParams }) {
 
   return (
     <>
-      {apps?.props?.apps?.map((element) => {
+      {apps?.props?.apps?.map((element, index) => {
         return (
           <Card
             key={element._id}
@@ -19,7 +19,7 @@ export default async function AppsCard({ searchParams }) {
             as={isEdited === 'true' ? '' : Link}
             radius="sm"
             className={
-              'border-none w-fit px-3 py-1 flex justify-center items-center bg-blur-bg mr-3 max-w-[94px] mt-2'
+              'border-none w-fit px-3 py-1 flex justify-center items-center bg-blur-bg mr-3 max-w-[94px] min-w-[94px] mt-2'
             }
           >
             <AppsCardEdited
@@ -30,9 +30,9 @@ export default async function AppsCard({ searchParams }) {
               alt="App logo"
               isZoomed
               className="object-cover"
-              height={70}
+              height={50}
               src={`https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${element.url}&size=50`}
-              width={70}
+              width={50}
             />
             <p className="font-semibold text-black mt-1">{element.name}</p>
           </Card>

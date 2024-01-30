@@ -23,7 +23,7 @@ export default function FormSearch({ setInput, completeInput }) {
   }
 
   return (
-    <div className="flex flex-col w-full absolute justify-center items-center">
+    <div className="flex flex-col w-full absolute justify-center items-center mt-5">
       <form onSubmit={handleSubmit} className="flex z-10 w-full justify-center">
         <SearchLogo completeInput={completeInput} />
         <SearchInput completeInput={completeInput} setInput={setInput} />

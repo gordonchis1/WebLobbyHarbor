@@ -22,7 +22,7 @@ export default function SettingsBlur() {
         defaultValue={
           JSON.parse(window.localStorage.getItem('config'))?.blur || 0
         }
-        className="w-full h-auto text-slate-950"
+        className="w-full h-auto text-slate-950 dark:text-white"
         color="foreground"
         onChange={handleChangeSliderBlur}
       />

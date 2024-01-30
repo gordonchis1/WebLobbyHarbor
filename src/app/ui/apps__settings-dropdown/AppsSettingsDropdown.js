@@ -32,10 +32,10 @@ export default function AppsSettingsDropDown({ searchParams }) {
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Static Actions"
-        className="text-black"
+        className="text-black dark:text-white"
         variant="faded"
       >
-        <DropdownItem textValue={'Edit'} onClick={handleEdit}>
+        <DropdownItem textValue="Edit" onClick={handleEdit}>
           <FontAwesomeIcon icon={faPencil} className="mr-2" />
           Edit
         </DropdownItem>

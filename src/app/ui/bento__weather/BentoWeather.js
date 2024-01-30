@@ -19,7 +19,7 @@ export default function BentoWeather() {
   }, [])
 
   return (
-    <div className="row-span-1 rounded-xl border-2 border-slate-400/10 bg-gradient-to-r from-blue-200/[.70] to-cyan-200/[.70] p-4 dark:bg-neutral-900 flex justify-center items-center text-2xl text-black">
+    <div className="row-span-1 overflow-hidden rounded-xl border-2 border-slate-400/10 bg-gradient-to-r from-blue-200/[.70] to-cyan-200/[.70] p-4 flex justify-center items-center text-2xl text-black">
       {weather.lat ? (
         <BentoWeathcerContent
           lat={weather.lat}

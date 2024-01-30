@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE__ENV=development next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,7 +13,6 @@
     "@clerk/themes": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@nextui-org/react": "^2.2.9",
@@ -27,6 +26,8 @@
     "querystring": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
     "svix": "^1.15.0",
     "use-debounce": "^10.0.0"
   },

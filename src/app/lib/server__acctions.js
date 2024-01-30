@@ -7,6 +7,7 @@ import App from '../../db/models/apps'
 import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { revalidatePath } from 'next/cache'
+import Notes from '../../db/models/Notes'
 
 // ! refactorizar el codigo de el refresh del token
 //! hacer una funcion para recuperar el token y validarlo
@@ -160,6 +161,7 @@ export const getFotballResults = async (url) => {
     const getResults = await axios.get(url, {
       headers: { 'X-Auth-Token': '69fd5f85acd8417f9bfe982135c39c78' }
     })
+
     return getResults.data
   } catch (error) {
     console.log(error)
@@ -175,5 +177,25 @@ export const getCurrentWeather = async (lat, lon) => {
     return weather.data
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const addNewNote = async (content, name, userId) => {
+  'use server'
+  dbConnect()
+  try {
+    const newNote = new Notes({
+      name,
+      content,
+      path: '/',
+      userId
+    })
+    const savedNote = await newNote.save()
+    const user = await User.findOne({ userId })
+    user.notes = user.notes.concat(savedNote._id)
+
+    await user.save()
+  } catch (error) {
+    console.error(error)
   }
 }
